@@ -1,0 +1,16 @@
+<h3>Create a Dog</h3>
+<%= form_for @dog do |form| %>
+    <% if @dog.errors.any? %>
+        <h2>Errors:</h2>
+        <ul>
+            <% @dog.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    <% end %>
+
+  <%= form.text_field :name, placeholder: "name" %>
+  <%= form.text_field :email, placeholder: "email" %>
+
+  <%= form.submit %>
+<% end %>

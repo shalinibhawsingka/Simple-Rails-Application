@@ -1,0 +1,26 @@
+<h3>All Dogs</h3>
+
+<%= form_tag dogs_path, :method => 'get' do %>
+    <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+    </p>    
+<% end %>
+
+
+<ul>
+  <% @dogs.each do |dog| %>
+    <li><%= link_to dog.name, dog_path(dog)  %></li>
+  <% end %>
+</ul>
+
+<table>
+  <% @dogs.each do |dog| %>
+    <tr>
+      <td><%= link_to dog.name, dog_path(dog) %></td>
+      <td><%= button_to 'Edit', edit_dog_path(dog), method: 'get'%></td>
+      <td><%= button_to 'Remove', dog_path(dog), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</table>
+<%= link_to "Add a New Dog", new_dog_path %><br>
+<%= link_to("Go to the Home Page", {:controller => 'home', :action => 'index'}) %>
