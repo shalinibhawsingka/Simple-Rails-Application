@@ -5,8 +5,6 @@ class HomeController < ApplicationController
 
     def firemail
         @students = Student.all.order(:name)
-        @students.each do |student|
-            StudentsMailer.registration_confirmation(student).deliver_now
-        end
+        StudentsMailer.registration_confirmation(@students).deliver_now
     end
 end

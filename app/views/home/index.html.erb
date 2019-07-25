@@ -1,6 +1,6 @@
 <h3>Welcome</h3>
-<%= link_to("Users page(Download CSV File)", {:controller => 'users', :action => 'index'}) %><br /> 
-<%= link_to("Employees page(Download PDF File)", {:controller => 'employees', :action => 'index'}) %><br /> 
-<%= link_to("Click to fire mail(Students)", {:controller => 'home', :action => 'firemail'}) %><br />
-<%= link_to("Photos Page(ImagesController)", {:controller => 'posts', :action => 'index'}) %><br />
-<%= link_to("CRUD Operation(along with Search)", {:controller => 'dogs', :action => 'index'}) %>
+<%= link_to("Users page(Download CSV File)", users_path) %><br /> 
+<%= link_to("Employees page(Download PDF File)", employees_path) %><br /> 
+<%= link_to("Click to fire mail(Students)", home_firemail_path) %><br />
+<%= link_to("Photos Page(ImagesController)", posts_path) %><br />
+<%= link_to("CRUD Operation(along with Search)", dogs_path) %>
