@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
 gem 'faker', '~> 1.9', '>= 1.9.6'
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap-sass', '~> 3.2.0'
 gem 'jquery-rails'
 gem 'prawn', '~> 1.2.1'
 gem 'prawn-table', '~> 0.1.0'

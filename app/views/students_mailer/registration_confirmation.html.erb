@@ -1,10 +1,29 @@
-<table>
+<style>
+  body{
+    font-family: Arial;
+  }
+  table{
+    margin: auto;
+  }
+  th{
+    text-transform: uppercase;
+    padding:1rem;
+    border: 2px solid rgb(0,0,0,0.8);
+  }
+  td{
+    padding:1rem;
+    text-align: center;
+    border: 1px solid rgb(0,0,0,0.5);
+  }
+</style>
+
+
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
       <th>Email</th>
       <th>Phone number</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -14,7 +33,7 @@
         <td><%= student.name %></td>
         <td><%= student.email %></td>
         <td><%= student.phone_number %></td>
-     </tr>
+      </tr>
     <% end %>
   </tbody>
 </table>

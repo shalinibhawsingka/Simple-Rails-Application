@@ -1,2 +1,2 @@
-<h3>Congratulations, mail has been fired to all the users successfully</h3>
-<%= link_to("Go to the Home Page", root_path) %>
+<h5>Congratulations, <h3><%= @students.find(124).name %></h3> mail has been fired successfully and your email id is <%= @students.find(124).email %></h5><br />
+<%= render "root_path/root_path" %>

@@ -1,14 +1,17 @@
 class DogsController < ApplicationController
+  
+  before_action :get_dog, only: [:edit, :show, :update, :destroy]
+
   def index
     if params[:search]
       @dogs = Dog.where('name LIKE ? OR email LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%")
-      else
+    else
       @dogs = Dog.all
-      end
+    end
   end
 
   def show
-    @dog = Dog.find(params[:id])
+    
   end
 
   def new
@@ -16,30 +19,28 @@ class DogsController < ApplicationController
   end
 
   def create
-    @dog = Dog.create(dog_params)
+    @dog = Dog.new(dog_params)
     if @dog.save
-    redirect_to action: 'index'
+      redirect_to action: 'index'
     else
-    render 'new'
+      render 'new'
     end
   end
 
   def edit
-    @dog = Dog.find(params[:id])
+    
   end
 
   def update
-    @dog = Dog.find(params[:id])
-
-    @dog.update(dog_params)
-
-    redirect_to dog_path(@dog)
+    if @dog.update(dog_params)
+      redirect_to dog_path(@dog)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @dog = Dog.find(params[:id])
     @dog.destroy
-
     redirect_to dogs_path
   end
 
@@ -49,5 +50,8 @@ class DogsController < ApplicationController
     params.require(:dog).permit(:name, :email)
   end
 
+  def get_dog
+    @dog = Dog.find(params[:id])
+  end
   
 end
