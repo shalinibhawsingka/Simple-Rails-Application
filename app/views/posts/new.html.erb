@@ -10,8 +10,8 @@
     </ul>
   <% end %>
   <%= form.label :name, "Title" %>
-  <%= form.text_field :name, placeholder:"Give a Title here" %>
+  <%= form.text_field :name, placeholder:"Give a Title here", required: true %>
   <%= form.label :image, "Upload Image" %><br/>
-  <%= form.file_field :image %>
+  <%= form.file_field :image, required: true %>
   <%= form.submit %>
 <% end %>

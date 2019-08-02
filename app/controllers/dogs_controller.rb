@@ -21,7 +21,8 @@ class DogsController < ApplicationController
   def create
     @dog = Dog.new(dog_params)
     if @dog.save
-      redirect_to action: 'index'
+      flash[:notice]="Dog has been created successfully"
+      redirect_to dog_path(@dog)
     else
       render 'new'
     end
@@ -33,6 +34,7 @@ class DogsController < ApplicationController
 
   def update
     if @dog.update(dog_params)
+      flash[:notice]="Dog has been updated successfully"
       redirect_to dog_path(@dog)
     else
       render :edit
@@ -40,8 +42,12 @@ class DogsController < ApplicationController
   end
 
   def destroy
-    @dog.destroy
-    redirect_to dogs_path
+    if @dog.destroy
+      flash[:notice] = "Successfully deleted!"
+      redirect_to dogs_path
+    else
+      flash[:notice] = "Error deleting dog!"
+    end
   end
 
   private

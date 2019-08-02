@@ -9,8 +9,8 @@
     </ul>
   <% end %>
   
-  <%= form.text_field :name, placeholder: "name" %>
-  <%= form.text_field :email, placeholder: "email" %>
+  <%= form.text_field :name, placeholder: "name", required: true %>
+  <%= form.text_field :email, placeholder: "email", required: true %>
 
   <%= form.submit %>
 <% end %>
