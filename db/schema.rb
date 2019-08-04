@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_01_074018) do
+ActiveRecord::Schema.define(version: 2019_08_04_064359) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name", null: false
@@ -34,15 +34,16 @@ ActiveRecord::Schema.define(version: 2019_08_01_074018) do
   end
 
   create_table "dogs", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+    t.string "name", null: false
+    t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_dogs_on_email", unique: true
   end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+    t.string "name", null: false
+    t.string "email", null: false
     t.integer "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -55,20 +56,20 @@ ActiveRecord::Schema.define(version: 2019_08_01_074018) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
-    t.string "name"
+    t.string "name", null: false
   end
 
   create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+    t.string "name", null: false
+    t.string "email", null: false
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.string "user_name"
-    t.string "user_email"
+    t.string "user_name", null: false
+    t.string "user_email", null: false
     t.integer "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

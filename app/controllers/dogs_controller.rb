@@ -2,11 +2,8 @@ class DogsController < ApplicationController
   before_action :get_dog, only: %i[edit show update destroy]
 
   def index
-    @dogs = if params[:search]
-              Dog.where("name LIKE ? OR email LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
-            else
-              Dog.all
-            end
+    @dogs = Dog.all
+    @dogies = Dog.search_by_name_or_email(params[:search])
   end
 
   def show; end

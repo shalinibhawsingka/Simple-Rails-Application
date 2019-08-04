@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   def index
-    @employees = Employee.all.ord
+    @employees = Employee.all.order_by_name
     respond_to do |format|
       format.html
       format.pdf do
