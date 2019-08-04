@@ -1,18 +1,15 @@
 class DogsController < ApplicationController
-  
-  before_action :get_dog, only: [:edit, :show, :update, :destroy]
+  before_action :get_dog, only: %i[edit show update destroy]
 
   def index
-    if params[:search]
-      @dogs = Dog.where('name LIKE ? OR email LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%")
-    else
-      @dogs = Dog.all
-    end
+    @dogs = if params[:search]
+              Dog.where("name LIKE ? OR email LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
+            else
+              Dog.all
+            end
   end
 
-  def show
-    
-  end
+  def show; end
 
   def new
     @dog = Dog.new
@@ -21,20 +18,18 @@ class DogsController < ApplicationController
   def create
     @dog = Dog.new(dog_params)
     if @dog.save
-      flash[:notice]="Dog has been created successfully"
+      flash[:notice] = "Dog has been created successfully"
       redirect_to dog_path(@dog)
     else
-      render 'new'
+      render "new"
     end
   end
 
-  def edit
-    
-  end
+  def edit; end
 
   def update
     if @dog.update(dog_params)
-      flash[:notice]="Dog has been updated successfully"
+      flash[:notice] = "Dog has been updated successfully"
       redirect_to dog_path(@dog)
     else
       render :edit
@@ -59,5 +54,4 @@ class DogsController < ApplicationController
   def get_dog
     @dog = Dog.find(params[:id])
   end
-  
 end

@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      flash[:notice]="Image has been uploaded successfully"
+      flash[:notice] = "Image has been uploaded successfully"
       redirect_to posts_path
     else
       render :new

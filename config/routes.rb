@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   get "home/firemail", to: "home#firemail"
   get "users", to: "users#index"
   get "employees", to: "employees#index"
-  resources :posts, only: [:index, :new, :create, :destroy]
+  resources :posts, only: %i[index new create destroy]
   resources :dogs
 end

@@ -1,3 +1,3 @@
 class Student < ApplicationRecord
-  scope :ord, -> { order('name') }
+  scope :ord, -> { order("name") }
 end

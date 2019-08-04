@@ -1,7 +1,5 @@
 class HomeController < ApplicationController
-  def index
-      
-  end
+  def index; end
 
   def firemail
     @students = Student.all.ord

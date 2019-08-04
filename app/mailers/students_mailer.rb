@@ -6,6 +6,6 @@ class StudentsMailer < ApplicationMailer
   #
   def registration_confirmation(students)
     @students = students
-    mail(to: "sample@gmail.com", subject: 'Confirm')
+    mail(to: "sample@gmail.com", subject: "Confirm")
   end
 end
