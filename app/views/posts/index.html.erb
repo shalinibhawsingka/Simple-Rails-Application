@@ -3,7 +3,7 @@
 <h5>Click on the image to view</h5>
 
 <% @posts.each do |post| %>
-  <%= link_to (image_tag(post.image.url(:thumb))), post.image(:original), class: "mr-2 pb-2" %>
+  <%= link_to (image_tag(post.image.url(:thumb), alt: "image missing")), post.image(:original), class: "mr-2 pb-2" %>
   <%= post.name %>
   <%= link_to 'Remove', post, class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
 <% end %>
