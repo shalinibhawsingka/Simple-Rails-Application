@@ -2,8 +2,11 @@ class DogsController < ApplicationController
   before_action :get_dog, only: %i[edit show update destroy]
 
   def index
-    @dogs = Dog.all
-    @dogies = Dog.search_by_name_or_email(params[:search])
+    if params[:search]
+      @dogs = Dog.search_by_name_or_email(params[:search])
+    else
+      @dogs = Dog.all
+    end
   end
 
   def show; end

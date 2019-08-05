@@ -4,8 +4,8 @@ class StudentsMailer < ApplicationMailer
   #
   #   en.students_mailer.registration_confirmation.subject
   #
-  def registration_confirmation(students)
-    @students = students
+  def registration_confirmation
+    @students = Student.all.order_by_name
     mail(to: "sample@gmail.com", subject: "Confirm")
   end
 end
